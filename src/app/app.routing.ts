@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
+import { InvoiceComponent } from './pages/invoice/invoice.component';
 
 const routes: Routes =[
   {
@@ -32,6 +34,13 @@ const routes: Routes =[
   }, {
     path: '**',
     redirectTo: 'dashboard'
+  },
+  { path: 'print',
+    outlet: 'print',
+    component: PrintLayoutComponent,
+    children: [
+      { path: 'invoice', component: InvoiceComponent }
+    ]
   }
 ];
 
