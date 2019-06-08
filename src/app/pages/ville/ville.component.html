@@ -1,0 +1,104 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">La gestion des villes</h3>
+        </div>
+        <form [formGroup]="villeForm">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">code postale</label>
+            <div class="col-sm-8">
+              <input type="number" class="form-control" formControlName="codePostale" [(ngModel)]="selectedVille.codePostale"
+                placeholder="code postale">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">nom</label>
+            <div class="col-sm-8">
+              <input class="form-control" formControlName="nom" [(ngModel)]="selectedVille.nom" placeholder="Nom de la ville">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Regions</label>
+            <div class="col-sm-8">
+              <select class="form-control" formControlName="region" (change)="findRegionById(selectedVille.region)"
+                [(ngModel)]="selectedVille.region">
+                <option disabled="disabled">Sélectionnez une region</option>
+                <option *ngFor="let region of regions" [value]="region.id">{{region.nom}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <button class="btn btn-primary" (click)="operation == 'add' ? addVille() : updateVille()">
+              {{operation == 'add' ? 'Ajouter' :
+              operation == 'edit' ? 'Modifier' : ''}}
+            </button>
+          </div>
+        </form>
+       
+      </div>
+    </div>
+  </div>
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Listes des villes</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  ID
+                </th>
+                <th>
+                  CODE POSTALE
+                </th>
+                <th>
+                  NOM
+                </th>
+                <th>
+                  REGION
+                </th>
+                <th>
+                  MODIFIER
+                </th>
+                <th>
+                  SUPPRIMER
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ville of villes">
+                  <td>{{ville.id}}</td>
+                  <td>{{ville.codePostale}}</td>
+                  <td>{{ville.nom}}</td>
+                  <td>{{ville.region.nom}}</td>
+                  <td><button class="btn btn-outline-warning" (click)="selectedVille=ville;selectedVille.ville=ville.region.id ;operation='edit';">Modifier</button></td>
+                  <td><button class="btn btn-outline-danger" (click)="selectedVille=ville ; deleteVille()">Supprimer</button></td>
+                </tr>
+              </tbody>
+
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
