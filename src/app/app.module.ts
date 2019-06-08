@@ -7,9 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { PrintLayoutComponent } from './pages/print-layout/print-layout.component';
-import { InvoiceComponent } from './pages/invoice/invoice.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
@@ -34,8 +31,6 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    PrintLayoutComponent,
-    InvoiceComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
