@@ -15,6 +15,7 @@ import { EtablissementComponent } from '../../pages/etablissement/etablissement.
 import { EtudiantComponent } from '../../pages/etudiant/etudiant.component';
 import { ProfilComponent } from '../../pages/profil/profil.component';
 import { VilleComponent } from '../../pages/ville/ville.component';
+import { ChartComponent } from '../../pages/chart/chart.component';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
@@ -43,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EtudiantComponent,
     ProfilComponent,
     VilleComponent,
+    ChartComponent,
     UserProfileComponent,
     TablesComponent,
     IconsComponent,

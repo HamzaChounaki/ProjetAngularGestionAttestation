@@ -32,4 +32,8 @@ export class ProfilService {
       console.log("Ici "+ id);
       return this.http.delete(API_URLS.PROFIL_URL +`/${id}`);
   }
+
+  CountEmpnoParProfil(): Observable<any> {
+      return this.http.get(API_URLS.PROFIL_URL);
+  }
 }

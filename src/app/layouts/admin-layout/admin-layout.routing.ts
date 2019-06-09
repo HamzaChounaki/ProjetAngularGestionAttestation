@@ -12,6 +12,7 @@ import { EmployeComponent } from '../../pages/employe/employe.component';
 import { EtudiantComponent } from '../../pages/etudiant/etudiant.component';
 import { EtablissementComponent } from '../../pages/etablissement/etablissement.component';
 import { ProfilComponent } from '../../pages/profil/profil.component';
+import { ChartComponent } from '../../pages/chart/chart.component';
 import { AttestationComponent } from '../../pages/attestation/attestation.component';
 import { VilleComponent } from '../../pages/ville/ville.component';
 
@@ -25,6 +26,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'etablissement',component: EtablissementComponent },
     { path: 'attestation',  component: AttestationComponent },
     { path: 'ville',        component: VilleComponent },
+    { path: 'chart',        component: ChartComponent },
 
     { path: 'user-profile', component: UserProfileComponent },
     { path: 'tables',       component: TablesComponent },

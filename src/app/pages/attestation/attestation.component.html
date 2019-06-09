@@ -79,7 +79,7 @@
                       DATE DE SORTIE
                     </th>
                     <th>
-                      NYMERO
+                      NUMERO
                     </th>
                     <th>
                       EMPLOYE
@@ -93,6 +93,9 @@
                     <th>
                       SUPPRIMER
                     </th>
+                    <th>
+                      IMPRIMER
+                    </th>
                   </thead>
                   <tbody>
                     <tr *ngFor="let attestation of attestations">
@@ -103,6 +106,7 @@
                       <td>{{attestation.etudiant.nom}}</td>
                       <td><button class="btn btn-outline-warning" (click)="selectedAttestation=attestation;selectedAttestation.attestation=attestation.employe.id ;selectedAttestation.attestation=attestation.etudiant.id ;operation='edit';">Modifier</button></td>
                       <td><button class="btn btn-outline-danger" (click)="selectedAttestation=attestation ; deleteAttestation()">Supprimer</button></td>
+                      <td><button type="button" class="btn btn-outline-primary" (click)="imprimerAttestation()">Imprimer</button></td>
                     </tr>
                   </tbody>
 
