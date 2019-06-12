@@ -10,21 +10,16 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
 
-    { path: '/employe',       title: 'Employe',       icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/etudiant',      title: 'Etudiant',      icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/region',        title: 'Region',        icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/profil',        title: 'Profil',        icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/etablissement', title: 'Etablissement', icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/ville',         title: 'Ville',         icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/attestation',   title: 'Attestation',   icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/employe',       title: 'Employe',       icon: 'ni-planet text-blue', class: '' },
+    { path: '/etudiant',      title: 'Etudiant',      icon: 'ni-key-25 text-info', class: '' },
+    { path: '/region',        title: 'Region',        icon: 'ni-pin-3 text-orange', class: '' },
+    { path: '/profil',        title: 'Profil',        icon: 'ni-single-02 text-yellow', class: '' },
+    { path: '/etablissement', title: 'Etablissement', icon: 'ni-bullet-list-67 text-red', class: '' },
+    { path: '/ville',         title: 'Ville',         icon: 'ni-pin-3 text-orange', class: '' },
+    { path: '/attestation',   title: 'Attestation',   icon: 'ni-planet text-blue', class: '' },
     { path: '/chart',         title: 'Chart',         icon: 'ni-tv-2 text-primary', class: '' },
     
-    { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
-    { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+    
 ];
 
 @Component({

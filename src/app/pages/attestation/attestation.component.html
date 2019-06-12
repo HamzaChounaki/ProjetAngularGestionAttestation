@@ -11,111 +11,141 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
-  <!-- Table -->
-  <div class="row">
-    <div class="col">
-      <div class="card shadow">
-        <div class="card-header border-0">
+  <div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-8">
           <h3 class="mb-0">La gestion des attestations</h3>
         </div>
-            <form [formGroup]="attestationForm">
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Date de sortie</label>
-                <div class="col-sm-8">
-                  <input type="date" class="form-control" formControlName="dateSortie" [(ngModel)]="selectedAttestation.dateSortie">
-                </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="attestationForm">
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label">Date d esortie</label>
+                <input type="date" class="form-control form-control-alternative" formControlName="dateSortie"
+                  [(ngModel)]="selectedAttestation.dateSortie">
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Numero</label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" formControlName="numero" [(ngModel)]="selectedAttestation.numero" placeholder="Numero de l'attestation">
-                </div>
+            </div>
+          </div>
+        </div>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label">Numero</label>
+                <input type="number" class="form-control form-control-alternative" placeholder="saisir le numero"
+                  formControlName="numero" [(ngModel)]="selectedAttestation.numero">
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Employes</label>
-                <div class="col-sm-8">
-                  <select class="form-control" formControlName="employe" (change)="findEmployeById(selectedAttestation.employe)"
-                    [(ngModel)]="selectedAttestation.employe">
-                    <option disabled="disabled">Sélectionnez un employe</option>
-                    <option *ngFor="let employe of employes" [value]="employe.id">{{employe.nom}}</option>
-                  </select>
-                </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label">Employe</label>
+                <select class="form-control form-control-alternative" formControlName="employe"
+                  (change)="findEmployeById(selectedAttestation.employe)" [(ngModel)]="selectedAttestation.employe">
+                  <option *ngFor="let employe of employes" [value]="employe.id">
+                    {{employe.nom}}
+                  </option>
+                </select>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Etudiants</label>
-                <div class="col-sm-8">
-                  <select class="form-control" formControlName="etudiant" (change)="findEtudiantById(selectedAttestation.etudiant)"
-                    [(ngModel)]="selectedAttestation.etudiant">
-                    <option disabled="disabled">Sélectionnez un etudiant</option>
-                    <option *ngFor="let etudiant of etudiants" [value]="etudiant.id">{{etudiant.nom}}</option>
-                  </select>
-                </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label">Etudiant</label>
+                <select class="form-control form-control-alternative" formControlName="etudiant"
+                  (change)="findEtudiantById(selectedAttestation.etudiant)" [(ngModel)]="selectedAttestation.etudiant">
+                  <option *ngFor="let etudiant of etudiants" [value]="etudiant.id">
+                    {{etudiant.nom}}
+                  </option>
+                </select>
               </div>
-              <div class="form-group row">
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
                 <button class="btn btn-primary" (click)="operation == 'add' ? addAttestation() : updateAttestation()">
                   {{operation == 'add' ? 'Ajouter' :
-                  operation == 'edit' ? 'Modifier' : ''}}
+                      operation == 'edit' ? 'Modifier' : ''}}
                 </button>
               </div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-      <div class="row mt-5">
-        <div class="col">
-          <div class="card bg-default shadow">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="text-white mb-0">Listes des attestations</h3>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      ID
-                    </th>
-                    <th>
-                      DATE DE SORTIE
-                    </th>
-                    <th>
-                      NUMERO
-                    </th>
-                    <th>
-                      EMPLOYE
-                    </th>
-                    <th>
-                      ETUDIANT
-                    </th>
-                    <th>
-                      MODIFIER
-                    </th>
-                    <th>
-                      SUPPRIMER
-                    </th>
-                    <th>
-                      IMPRIMER
-                    </th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let attestation of attestations">
-                      <td>{{attestation.id}}</td>
-                      <td>{{attestation.dateSortie}}</td>
-                      <td>{{attestation.numero}}</td>
-                      <td>{{attestation.employe.nom}}</td>
-                      <td>{{attestation.etudiant.nom}}</td>
-                      <td><button class="btn btn-outline-warning" (click)="selectedAttestation=attestation;selectedAttestation.attestation=attestation.employe.id ;selectedAttestation.attestation=attestation.etudiant.id ;operation='edit';">Modifier</button></td>
-                      <td><button class="btn btn-outline-danger" (click)="selectedAttestation=attestation ; deleteAttestation()">Supprimer</button></td>
-                      <td><button type="button" class="btn btn-outline-primary" (click)="imprimerAttestation()">Imprimer</button></td>
-                    </tr>
-                  </tbody>
-
-
-                </table>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      </form>
     </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Listes des attestations</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  ID
+                </th>
+                <th>
+                  DATE DE SORTIE
+                </th>
+                <th>
+                  NUMERO
+                </th>
+                <th>
+                  EMPLOYE
+                </th>
+                <th>
+                  ETUDIANT
+                </th>
+                <th>
+                  MODIFIER
+                </th>
+                <th>
+                  SUPPRIMER
+                </th>
+                <th>
+                  IMPRIMER
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let attestation of attestations">
+                  <td>{{attestation.id}}</td>
+                  <td>{{attestation.dateSortie}}</td>
+                  <td>{{attestation.numero}}</td>
+                  <td>{{attestation.employe.nom}}</td>
+                  <td>{{attestation.etudiant.nom}}</td>
+                  <td><button class="btn btn-outline-warning"
+                      (click)="selectedAttestation=attestation;selectedAttestation.attestation=attestation.employe.id ;selectedAttestation.attestation=attestation.etudiant.id ;operation='edit';">Modifier</button>
+                  </td>
+                  <td><button class="btn btn-outline-danger"
+                      (click)="selectedAttestation=attestation ; deleteAttestation()">Supprimer</button></td>
+                  <td><button class="btn btn-outline-primary"
+                      (click)="imprimerAttestation()">Imprimer</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
